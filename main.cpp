@@ -181,6 +181,28 @@ int main()
 
                     }
 
+            else if(izbor == 3)
+
+                    {
+
+                        cout << "Unesite ime i prezime koje zelite pretraziti: " << endl;
+
+                        string pretraga;
+
+                        cin.ignore();
+
+                        getline(cin, pretraga);
+
+                        if(ispis_podataka(prezime_i_ime,br_racuna,saldo,br_klijenata,pretraga)==false)
+
+                        {
+
+                            cout << "Takvi klijenti ne postoje!" << endl;
+
+                        }
+
+                    }
+
             else
 
                     {
