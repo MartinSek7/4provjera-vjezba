@@ -288,6 +288,16 @@ int main()
 
         }
 
+        else if(izbor == 7)
+
+                {
+
+                    cout << "Izlaz iz programa..." << endl;
+
+                    break;
+
+                }
+
         else
 
         {
