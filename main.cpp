@@ -3,6 +3,70 @@
 #include <numeric>
 using namespace std;
 
+bool neg_broj(double broj)
+
+{
+
+    if(broj<0)
+
+        return true;
+
+    return false;
+
+}
+
+
+bool tekuci_racun(unsigned long long int broj)
+
+{
+
+    if(broj/100000000 == 32)
+
+        return true;
+
+    return false;
+
+}
+
+
+bool ispis_podataka(string prezime_i_ime[],
+
+                    unsigned long long int br_racuna[],
+
+                    double saldo[],
+
+                    int br_klijenata,
+
+                    string pretraga)
+
+{
+
+    int br = 0;
+
+    for(int i = 0; i < br_klijenata; i++)
+
+    {
+
+        if(prezime_i_ime[i] == pretraga)
+
+        {
+
+            cout << br_racuna[i] << ", " << saldo[i] << endl;
+
+            br++;
+
+        }
+
+    }
+
+    if(br==0)
+
+        return false;
+
+    return true;
+
+}
+
 int main()
 {
     int br_klijenata = 0;
@@ -79,7 +143,7 @@ int main()
 
                 br_racuna[br_klijenata] = unos;
 
-                cout << "Unesite prezime i ime: " << endl;
+                cout << "Unesite prezime i ime: ";
 
                 cin.ignore();
 
@@ -92,6 +156,30 @@ int main()
                 br_klijenata++;
 
             }
+
+            else if(izbor == 2)
+
+                    {
+
+                        for(int i = 0; i < br_klijenata; i++)
+
+                        {
+
+                            cout << br_racuna[i] << ", " << prezime_i_ime[i] << ", " << saldo[i] << "kn" << endl;
+
+                        }
+
+                        cout << "Suma svih salda iznosi " << accumulate(saldo, saldo+br_klijenata, 0.0) << "kn" << endl;
+
+                        int max_indeks = max_element(saldo, saldo+br_klijenata) - saldo;
+
+                        cout << "Klijent s najvecim saldom je " << prezime_i_ime[max_indeks] << endl;
+
+                        cout << "Broj racuna s negativnim saldom: " << count_if(saldo, saldo+br_klijenata, neg_broj) << endl;
+
+                        cout << "Broj tekucih racuna: " << count_if(br_racuna, br_racuna+br_klijenata, tekuci_racun) << endl;
+
+                    }
 
             else
 
