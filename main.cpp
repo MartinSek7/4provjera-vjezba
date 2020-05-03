@@ -93,9 +93,9 @@ int main()
 
         cout << "4.brisanje racuna" << endl;
 
-        cout << "5.izmjena podataka prema broju racuna" << endl;
+        cout << "5.ispisi sortirano po prezimenu i imenu" << endl;
 
-        cout << "6.ispisi sortirano po prezimenu i imenu" << endl;
+        cout << "6.izmjena podataka prema broju racuna" << endl;
 
         cout << "7.izlaz iz programa" << endl;
 
@@ -247,6 +247,44 @@ int main()
 
                 cout << "Trazeni racun ne postoji!" << endl;
 
+
+        }
+
+        else if(izbor == 5)
+
+        {
+
+            string imena[1000];
+
+            for(int i=0;i<br_klijenata;i++)
+
+            {
+
+                imena[i]=prezime_i_ime[i];
+
+            }
+
+            sort(imena, imena+br_klijenata);
+
+            for(int i=0;i<br_klijenata;i++)
+
+            {
+
+                for(int j=0;j<br_klijenata;j++)
+
+                {
+
+                    if(imena[i] == prezime_i_ime[j])
+
+                    {
+
+                        cout<<prezime_i_ime[j]<<endl<<br_racuna[j]<<endl<<saldo[j]<<endl;
+
+                    }
+
+                }
+
+            }
 
         }
 
